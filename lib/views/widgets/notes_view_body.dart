@@ -13,7 +13,6 @@ class NotesViewBody extends StatelessWidget {
         children: [
           SizedBox(height: 10.0),
           const CustomAppBar(),
-
           const Expanded(
             child: Padding(
               padding: EdgeInsets.only(top: 20.0, bottom: 20.0),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/views/widgets/custom_button.dart';
-import 'package:notes_app/views/widgets/custom_text_form_field.dart';
+import 'package:notes_app/views/widgets/add_form_sheet.dart';
 
 class AddBottomSheet extends StatelessWidget {
   const AddBottomSheet({super.key});
@@ -8,19 +7,13 @@ class AddBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: 10.0),
-            CustomTextFormField(hintText: 'Title'),
-            SizedBox(height: 10.0),
-            CustomTextFormField(hintText: 'Content', maxLines: 5),
-            SizedBox(height: 30.0),
-            CustomButton(),
-          ],
-        ),
+      padding: EdgeInsets.only(
+        left: 16.0,
+        right: 16.0,
+        top: 20.0,
+        bottom: MediaQuery.viewInsetsOf(context).bottom,
       ),
+      child: SingleChildScrollView(child: AddFormSheet()),
     );
   }
 }
