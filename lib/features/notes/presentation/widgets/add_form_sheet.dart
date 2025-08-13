@@ -1,6 +1,8 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/features/notes/presentation/cubits/add_notes_cubit/notes_cubit.dart';
+import 'package:notes_app/features/notes/presentation/models/notes_model.dart';
 import 'package:notes_app/features/notes/presentation/widgets/custom_button.dart';
 import 'package:notes_app/features/notes/presentation/widgets/custom_text_form_field.dart';
 
@@ -42,8 +44,15 @@ class _AddFormSheetState extends State<AddFormSheet> {
             onTap: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
-                log('Title: $title, Content: $content');
-                Navigator.pop(context);
+                var notesModel = NotesModel(
+                  color: Colors.blue.value,
+                  date: DateTime.now().toString(),
+                  title: title!,
+                  content: content!,
+                );
+
+                BlocProvider.of<AddNotesCubit>(context).addNotes(notesModel);
+              
               } else {
                 setState(() {
                   autovalidateMode = AutovalidateMode.always;
