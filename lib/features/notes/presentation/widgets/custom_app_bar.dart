@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/views/widgets/custom_icon.dart';
+import 'package:notes_app/features/notes/presentation/widgets/custom_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  const CustomAppBar({super.key, required this.text, required this.icon, this.onTap});
 
+  final String text;
+  final IconData icon;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'Notes',
+          text,
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -18,7 +21,10 @@ class CustomAppBar extends StatelessWidget {
           ),
         ),
 
-        CustomIcon(),
+        CustomIcon(
+          onTap: onTap,
+          icon: icon,
+        ),
       ],
     );
   }

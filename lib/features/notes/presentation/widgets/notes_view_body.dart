@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/views/widgets/custom_app_bar.dart';
-import 'package:notes_app/views/widgets/notes_item_list_view.dart';
+import 'package:notes_app/features/notes/presentation/widgets/custom_app_bar.dart';
+import 'package:notes_app/features/notes/presentation/widgets/notes_item_list_view.dart';
 
 class NotesViewBody extends StatelessWidget {
   const NotesViewBody({super.key});
@@ -12,10 +12,14 @@ class NotesViewBody extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: 10.0),
-          const CustomAppBar(),
+          CustomAppBar(
+            onTap: () {},
+            text: 'Notes',
+            icon: Icons.search, // Assuming you want to use a search icon
+          ),
           const Expanded(
             child: Padding(
-              padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
+              padding: EdgeInsets.only(top: 15.0, bottom: 20.0),
               child: NotesItemListView(),
             ),
           ),

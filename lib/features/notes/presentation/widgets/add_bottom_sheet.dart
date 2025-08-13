@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/views/widgets/add_form_sheet.dart';
+import 'package:notes_app/features/notes/presentation/widgets/add_form_sheet.dart';
 
 class AddBottomSheet extends StatelessWidget {
   const AddBottomSheet({super.key});

@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:notes_app/views/widgets/custom_button.dart';
-import 'package:notes_app/views/widgets/custom_text_form_field.dart';
+import 'package:notes_app/features/notes/presentation/widgets/custom_button.dart';
+import 'package:notes_app/features/notes/presentation/widgets/custom_text_form_field.dart';
 
 class AddFormSheet extends StatefulWidget {
   const AddFormSheet({super.key});
