@@ -46,13 +46,12 @@ class _AddFormSheetState extends State<AddFormSheet> {
                 formKey.currentState!.save();
                 var notesModel = NotesModel(
                   color: Colors.blue.value,
-                  date: DateTime.now().toString(),
+                  date: formattedDate,
                   title: title!,
                   content: content!,
                 );
 
                 BlocProvider.of<AddNotesCubit>(context).addNotes(notesModel);
-              
               } else {
                 setState(() {
                   autovalidateMode = AutovalidateMode.always;
@@ -65,4 +64,9 @@ class _AddFormSheetState extends State<AddFormSheet> {
       ),
     );
   }
+
+  String formattedDate =
+      '${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year} '
+      '${DateTime.now().hour % 12 == 0 ? 12 : DateTime.now().hour % 12}:${DateTime.now().minute.toString().padLeft(2, '0')} '
+      '${DateTime.now().hour >= 12 ? 'PM' : 'AM'}';
 }
