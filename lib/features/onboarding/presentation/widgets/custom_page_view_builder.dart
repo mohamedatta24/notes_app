@@ -3,7 +3,7 @@ import 'package:notes_app/features/onboarding/presentation/models/on_boarding_mo
 import 'package:notes_app/features/onboarding/presentation/widgets/custom_page_view_item.dart';
 
 class CustomPageViewBuilder extends StatelessWidget {
-  const CustomPageViewBuilder({super.key});
+  const CustomPageViewBuilder({super.key, this.controller, this.onPageChanged});
 
   final List<OnBoardingModel> pages = const [
     OnBoardingModel(
@@ -23,9 +23,14 @@ class CustomPageViewBuilder extends StatelessWidget {
     ),
   ];
 
+  final PageController? controller;
+  final void Function(int)? onPageChanged;
+
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
+      onPageChanged: onPageChanged,
+      controller: controller,
       physics: BouncingScrollPhysics(),
       itemCount: pages.length,
       itemBuilder: (context, index) {
