@@ -1,10 +1,12 @@
-import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/features/notes/presentation/cubits/add_notes_cubit/notes_cubit.dart';
 import 'package:notes_app/features/notes/presentation/models/notes_model.dart';
 import 'package:notes_app/features/notes/presentation/widgets/custom_button.dart';
+import 'package:notes_app/features/notes/presentation/widgets/custom_colors_list_view.dart';
 import 'package:notes_app/features/notes/presentation/widgets/custom_text_form_field.dart';
+import 'package:notes_app/utils/constants.dart';
 
 class AddFormSheet extends StatefulWidget {
   const AddFormSheet({super.key});
@@ -40,12 +42,14 @@ class _AddFormSheetState extends State<AddFormSheet> {
             maxLines: 5,
           ),
           SizedBox(height: 30.0),
+          CustomColorsListView(),
+          SizedBox(height: 30.0),
           CustomButton(
             onTap: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
                 var notesModel = NotesModel(
-                  color: Colors.blue.value,
+                  color: context.read<AddNotesCubit>().selectedColor.value,
                   date: formattedDate,
                   title: title!,
                   content: content!,
@@ -64,9 +68,4 @@ class _AddFormSheetState extends State<AddFormSheet> {
       ),
     );
   }
-
-  String formattedDate =
-      '${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year} '
-      '${DateTime.now().hour % 12 == 0 ? 12 : DateTime.now().hour % 12}:${DateTime.now().minute.toString().padLeft(2, '0')} '
-      '${DateTime.now().hour >= 12 ? 'PM' : 'AM'}';
 }
