@@ -5,7 +5,7 @@ import 'package:notes_app/features/notes/presentation/models/notes_model.dart';
 import 'package:notes_app/features/notes/presentation/widgets/custom_button.dart';
 import 'package:notes_app/features/notes/presentation/widgets/custom_colors_list_view.dart';
 import 'package:notes_app/features/notes/presentation/widgets/custom_text_form_field.dart';
-import 'package:notes_app/utils/constants.dart';
+import 'package:notes_app/core/utils/constants.dart';
 
 class AddFormSheet extends StatefulWidget {
   const AddFormSheet({super.key});
@@ -46,6 +46,7 @@ class _AddFormSheetState extends State<AddFormSheet> {
           ),
           SizedBox(height: 30.0),
           CustomButton(
+            text: 'Add Note',
             onTap: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();

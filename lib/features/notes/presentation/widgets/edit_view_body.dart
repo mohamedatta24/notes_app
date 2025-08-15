@@ -5,7 +5,7 @@ import 'package:notes_app/features/notes/presentation/cubits/notes_cubit/notes_c
 import 'package:notes_app/features/notes/presentation/models/notes_model.dart';
 import 'package:notes_app/features/notes/presentation/widgets/custom_app_bar.dart';
 import 'package:notes_app/features/notes/presentation/widgets/custom_text_form_field.dart';
-import 'package:notes_app/utils/colors.dart';
+import 'package:notes_app/core/utils/colors.dart';
 
 class EditViewBody extends StatefulWidget {
   const EditViewBody({super.key, required this.notesModel});

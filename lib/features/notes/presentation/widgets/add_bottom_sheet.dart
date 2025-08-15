@@ -6,7 +6,7 @@ import 'package:notes_app/features/notes/presentation/cubits/add_notes_cubit/not
 import 'package:notes_app/features/notes/presentation/cubits/notes_cubit/notes_cubit.dart';
 
 import 'package:notes_app/features/notes/presentation/widgets/add_form_sheet.dart';
-import 'package:notes_app/utils/colors.dart';
+import 'package:notes_app/core/utils/colors.dart';
 
 class AddBottomSheet extends StatelessWidget {
   const AddBottomSheet({super.key});

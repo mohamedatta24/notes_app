@@ -4,7 +4,7 @@ import 'package:notes_app/core/helper/snack_bar_messenger_error.dart';
 import 'package:notes_app/features/notes/presentation/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/features/notes/presentation/models/notes_model.dart';
 import 'package:notes_app/features/notes/presentation/views/edit_view.dart';
-import 'package:notes_app/utils/colors.dart';
+import 'package:notes_app/core/utils/colors.dart';
 
 class NotesItem extends StatelessWidget {
   const NotesItem({super.key, required this.notesModel});
