@@ -1,7 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:notes_app/features/notes/presentation/views/notes_view.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:notes_app/features/splash/presentation/widgets/custom_splash_item.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -9,19 +9,14 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
-      splash: Center(
-        child: Image.asset(
-          'assets/logo/Note-Logo-Transparent-Background.png',
-          height: 150,
-        ),
-      ),
+      splash: CustomItem(),
       nextScreen: NotesView(),
       backgroundColor: Colors.black,
       splashIconSize: 250,
       duration: 2000,
       splashTransition: SplashTransition.scaleTransition,
       animationDuration: const Duration(seconds: 2),
-      pageTransitionType: PageTransitionType.fade,
+      curve: Curves.easeInOutBack,
     );
   }
 }
