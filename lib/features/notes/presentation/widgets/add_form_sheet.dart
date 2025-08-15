@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/features/notes/presentation/cubits/add_notes_cubit/notes_cubit.dart';
@@ -42,14 +41,16 @@ class _AddFormSheetState extends State<AddFormSheet> {
             maxLines: 5,
           ),
           SizedBox(height: 30.0),
-          CustomColorsListView(),
+          CustomColorsListView(
+          
+          ),
           SizedBox(height: 30.0),
           CustomButton(
             onTap: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
                 var notesModel = NotesModel(
-                  color: context.read<AddNotesCubit>().selectedColor.value,
+                  color: BlocProvider.of<AddNotesCubit>(context).selectedColor.value,
                   date: formattedDate,
                   title: title!,
                   content: content!,
